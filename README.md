@@ -109,6 +109,34 @@ grep '"login_attempt"' honeypot.log | jq -r '[.details.username, .details.passwo
 grep '"command"' honeypot.log | jq -r '.details.command'
 ```
 
+## 🧪 Example Run (demo)
+
+Here is a short capture from a local demo run (console-style and raw JSONL lines taken from `honeypot.log`). Use this as a reference to show what the honeypot produces in real-world testing.
+
+### Console (human-readable) — sample
+
+```
+#1 2026-02-24T14:39:21 [HTTP:80]  127.0.0.1:21326 connected
+#2 2026-02-24T14:39:21 [HTTP:80]  127.0.0.1:21326 scan: GET /
+#3 2026-02-24T14:40:36 [HTTP:80]  127.0.0.1:21352 tried login: admin:admin
+#4 2026-02-24T14:43:59 [SSH:2222]  127.0.0.1:21413 data: SSH-2.0-OpenSSH_for_Windows_8.1
+#5 2026-02-24T14:45:05 [FTP:21]   127.0.0.1:21446 tried login: U:S
+```
+
+### JSONL (raw) — sample entries from `honeypot.log`
+
+```json
+{"timestamp":"2026-02-24T14:39:21.254219100+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21326","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:40:36.525203100+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21352","event_type":"login_attempt","details":{"password":"admin","path":"POST / HTTP/1.1","username":"admin"}}
+{"timestamp":"2026-02-24T14:43:59.295155300+00:00","service":"SSH","port":2222,"remote_addr":"127.0.0.1:21413","event_type":"data","details":{"banner_response":true,"raw":"SSH-2.0-OpenSSH_for_Windows_8.1"}}
+{"timestamp":"2026-02-24T14:45:05.957879300+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21446","event_type":"login_attempt","details":{"password":"S","username":"U"}}
+```
+
+Notes:
+
+- The console output is a human-friendly rendering of the JSONL events; timestamps, service labels, and event descriptions are derived from the underlying JSON.
+- Use the JSONL file for automated analysis (jq, Python, SIEM ingestion).
+
 ---
 
 ## 🏗️ Architecture
