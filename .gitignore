@@ -1,1 +1,6 @@
 /target
+
+# Log files
+honeypot.log
+honeypot-demo.log
+*.log
