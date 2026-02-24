@@ -1,0 +1,23 @@
+{"timestamp":"2026-02-24T14:39:21.254219100+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21326","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:39:21.258540700+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21326","event_type":"scan","details":{"request":"GET / HTTP/1.1"}}
+{"timestamp":"2026-02-24T14:39:21.259208300+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21326","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:39:22.143285400+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21327","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:40:26.693684700+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21348","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:40:26.700869300+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21348","event_type":"scan","details":{"request":"GET / HTTP/1.1"}}
+{"timestamp":"2026-02-24T14:40:26.702690300+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21348","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:40:26.964505200+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21349","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:40:26.966288300+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21349","event_type":"scan","details":{"request":"GET /favicon.ico HTTP/1.1"}}
+{"timestamp":"2026-02-24T14:40:26.967262700+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21349","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:40:36.521110500+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21352","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:40:36.525203100+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21352","event_type":"login_attempt","details":{"password":"admin","path":"POST / HTTP/1.1","username":"admin"}}
+{"timestamp":"2026-02-24T14:40:36.526037600+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21352","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:42:55.500478500+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21383","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:42:55.502069400+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21383","event_type":"login_attempt","details":{"password":"admin","path":"POST / HTTP/1.1","username":"admin"}}
+{"timestamp":"2026-02-24T14:42:55.505898500+00:00","service":"HTTP","port":80,"remote_addr":"127.0.0.1:21383","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:43:57.856078800+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21327","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:43:59.289297100+00:00","service":"SSH","port":2222,"remote_addr":"127.0.0.1:21413","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:43:59.295155300+00:00","service":"SSH","port":2222,"remote_addr":"127.0.0.1:21413","event_type":"data","details":{"banner_response":true,"raw":"SSH-2.0-OpenSSH_for_Windows_8.1"}}
+{"timestamp":"2026-02-24T14:43:59.296133100+00:00","service":"SSH","port":2222,"remote_addr":"127.0.0.1:21413","event_type":"disconnect","details":{}}
+{"timestamp":"2026-02-24T14:45:03.353918200+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21446","event_type":"connection","details":{}}
+{"timestamp":"2026-02-24T14:45:05.957879300+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21446","event_type":"login_attempt","details":{"password":"S","username":"U"}}
+{"timestamp":"2026-02-24T14:45:05.958869600+00:00","service":"FTP","port":21,"remote_addr":"127.0.0.1:21446","event_type":"disconnect","details":{}}

@@ -1,17 +1,19 @@
 # 🍯 IoT Honeypot
 
-```
-    ___     _____   _   _                                   _
- |_ _|_____|_   _| | | | ___  _ __   ___ _   _ _ __   ___ | |_
-    | |/ _ \  | |   | |_| |/ _ \| '_ \ / _ \ | | | '_ \ / _ \| __|
-    | | (_) | | |   |  _  | (_) | | | |  __/ |_| | |_) | (_) | |_
+___     _____   _   _                                   _
+ |__|_____|_   _| | | | ___  _ __   ___ _   _ _ __   ___ | |_
+  | |/_ \  | |   | |_| |/ _ \| '_ \ / _\ | | | '_ \ / _\| __|
+  | | (_) | | |   |  _  | (_) | | | |  __/ |_| | |_) | (_) | |_
  |___\___/  |_|   |_| |_|\___/|_| |_|\___|\__, | .__/ \___/ \__|
-                                                                                     |___/|_|
-```
+                                           |___/|_|
+
+  Local IoT Honeypot — Defensive Security Tool
+  Simulates vulnerable IoT devices to detect network probes
+  All captured data is stored locally. For use on your own network only.
 
 A sophisticated local honeypot written in Rust that simulates vulnerable IoT devices to detect, log, and analyze unauthorized network probes and intrusion attempts on your network.
 
-> 🛡️ **Defensive Security Only** — Deploy this on networks you own or have explicit written permission to monitor. This tool is designed for security research and threat analysis.
+> 🛡️ __Defensive Security Only__ — Deploy this on networks you own or have explicit written permission to monitor. This tool is designed for security research and threat analysis.
 
 ---
 
@@ -21,11 +23,11 @@ This honeypot emulates the following vulnerable IoT device interfaces to attract
 
 | Service | Port(s) | Simulates | Target |
 |---------|---------|-----------|--------|
-| **HTTP** | 80, 8080 | IP camera web login panel | Web-based credential theft |
-| **Telnet** | 23 | BusyBox router shell | Mirai botnet and legacy IoT exploits |
-| **RTSP** | 554 | IP camera stream endpoint | Unauthorized stream access |
-| **SSH** | 2222 | OpenSSH server | Client fingerprint & config capture |
-| **FTP** | 21 | vsFTPd file server | FTP credential harvesting |
+| __HTTP__ | 80, 8080 | IP camera web login panel | Web-based credential theft |
+| __Telnet__ | 23 | BusyBox router shell | Mirai botnet and legacy IoT exploits |
+| __RTSP__ | 554 | IP camera stream endpoint | Unauthorized stream access |
+| __SSH__ | 2222 | OpenSSH server | Client fingerprint & config capture |
+| __FTP__ | 21 | vsFTPd file server | FTP credential harvesting |
 
 ---
 
@@ -35,9 +37,9 @@ This honeypot emulates the following vulnerable IoT device interfaces to attract
 
 You'll need the following tools installed on your system:
 
-- **Rust & Cargo** ([install here](https://rustup.rs)) — the Rust toolchain and package manager
-- **Linux/macOS or WSL** (on Windows) — required for binding to ports < 1024
-- **Administrator/sudo access** — needed to run privileged network listeners
+- __Rust & Cargo__ ([install here](https://rustup.rs)) — the Rust toolchain and package manager
+- __Linux/macOS or WSL__ (on Windows) — required for binding to ports < 1024
+- __Administrator/sudo access__ — needed to run privileged network listeners
 
 ### Installation & Execution
 
@@ -50,13 +52,13 @@ cargo build --release
 
 #### 2. Run the Honeypot
 
-**Default settings** (all services enabled on 0.0.0.0):
+__Default settings__ (all services enabled on 0.0.0.0):
 
 ```bash
 sudo ./target/release/iot-honeypot
 ```
 
-**Custom configuration**:
+__Custom configuration__:
 
 ```bash
 sudo ./target/release/iot-honeypot \
@@ -65,13 +67,13 @@ sudo ./target/release/iot-honeypot \
   --no-ssh        # disable specific services
 ```
 
-**View all options**:
+__View all options__:
 
 ```bash
 ./target/release/iot-honeypot --help
 ```
 
-> **Privilege Note**: `sudo` is required for ports below 1024 (80, 21, 23, 554).  
+> __Privilege Note__: `sudo` is required for ports below 1024 (80, 21, 23, 554).  
 > Alternatively, grant capabilities: `setcap cap_net_bind_service=+ep ./target/release/iot-honeypot`
 
 ---
@@ -164,12 +166,12 @@ src/
     └── run_ftp_honeypot()     — FTP USER/PASS credential capture
 ```
 
-**Key Design Patterns**:
+__Key Design Patterns__:
 
-- **Concurrent Execution**: All services run as independent `tokio::spawn` tasks
-- **Shared Logger**: Uses `Arc<Mutex<HoneypotLogger>>` for thread-safe logging
-- **Async I/O**: Built on `tokio` runtime for high-performance connection handling
-- **Modular Services**: Each honeypot is self-contained and can be independently enabled/disabled
+- __Concurrent Execution__: All services run as independent `tokio::spawn` tasks
+- __Shared Logger__: Uses `Arc<Mutex<HoneypotLogger>>` for thread-safe logging
+- __Async I/O__: Built on `tokio` runtime for high-performance connection handling
+- __Modular Services__: Each honeypot is self-contained and can be independently enabled/disabled
 
 ---
 
@@ -193,7 +195,7 @@ pub async fn run_new_honeypot(logger: Arc<Mutex<HoneypotLogger>>) {
 }
 ```
 
-**Steps**:
+__Steps__:
 
 1. Create a `TcpListener` on your target port
 2. Accept connections in an infinite loop
@@ -207,11 +209,11 @@ pub async fn run_new_honeypot(logger: Arc<Mutex<HoneypotLogger>>) {
 
 Please deploy this tool responsibly:
 
-- ✅ **Deploy on networks you own** or have **explicit written permission** from the network owner
-- ✅ **Do not expose** to the public internet without understanding legal implications
-- ✅ **Handle captured data securely** — credentials and behavioral data may be sensitive
-- ✅ **Comply with local laws** regarding monitoring and data retention
-- ❌ **Do not use** for unauthorized network intrusion or surveillance
-- ❌ **Do not share** captured data without proper anonymization and consent
+- ✅ __Deploy on networks you own__ or have __explicit written permission__ from the network owner
+- ✅ __Do not expose__ to the public internet without understanding legal implications
+- ✅ __Handle captured data securely__ — credentials and behavioral data may be sensitive
+- ✅ __Comply with local laws__ regarding monitoring and data retention
+- ❌ __Do not use__ for unauthorized network intrusion or surveillance
+- ❌ __Do not share__ captured data without proper anonymization and consent
 
-This tool is intended for **defensive security research and threat analysis only**.
+This tool is intended for __defensive security research and threat analysis only__.
