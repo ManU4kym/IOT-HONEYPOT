@@ -1,5 +1,14 @@
 # 🍯 IoT Honeypot
 
+```
+    ___     _____   _   _                                   _
+ |_ _|_____|_   _| | | | ___  _ __   ___ _   _ _ __   ___ | |_
+    | |/ _ \  | |   | |_| |/ _ \| '_ \ / _ \ | | | '_ \ / _ \| __|
+    | | (_) | | |   |  _  | (_) | | | |  __/ |_| | |_) | (_) | |_
+ |___\___/  |_|   |_| |_|\___/|_| |_|\___|\__, | .__/ \___/ \__|
+                                                                                     |___/|_|
+```
+
 A sophisticated local honeypot written in Rust that simulates vulnerable IoT devices to detect, log, and analyze unauthorized network probes and intrusion attempts on your network.
 
 > 🛡️ **Defensive Security Only** — Deploy this on networks you own or have explicit written permission to monitor. This tool is designed for security research and threat analysis.
